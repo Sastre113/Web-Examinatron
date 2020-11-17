@@ -1,7 +1,8 @@
-const express = require('express')
-require('./db/mongoose')
+const express = require('express');
+require('./db/mongoose');
 
-const port = process.env.PORT
+const testRouter = require('./routers/question');
+const port = process.env.PORT || 3000;
 
 // express app
 const app = express();
@@ -15,7 +16,7 @@ app.listen(port, () => {
 app.set('view engine', 'ejs');
 
 // middleware & static files
-app.use(express.static('public'));
+app.use('/static', express.static(__dirname + '/public'));
 
 
 app.get('/', (req, res) => {
@@ -26,6 +27,8 @@ app.get('/create', (req, res) => {
   res.render('create', { title: 'Test' });
 });
 
+app.use(express.json());
+app.use('/api', testRouter);
 
 // 404 page
 app.use((req, res) => {
