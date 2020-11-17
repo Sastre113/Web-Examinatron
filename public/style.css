@@ -1,0 +1,20 @@
+* {
+    margin:0;
+    padding:0;
+}
+
+
+/* Menu de navegacion */
+#menuNavegacion {
+    background-color:black;
+}
+
+#menuNavegacion li{
+    color: white;
+    list-style-type: none;
+}
+
+#menuNavegacion li:hover{
+    background-color: grey;
+    color:black;
+}
