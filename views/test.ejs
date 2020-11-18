@@ -11,16 +11,19 @@
         <%- include("./partials/nav.ejs") %>
     </header>
     <main>
-        <form action="/api/create" method="GET"> 
-            <label for="pregunta">Pregunta:</label><br>
-            <label for="resp1">Respuesta 1</label><br>
-            <input type="radio" id="resp1" name="resp1"><br><br>
+        <% if (tests.length > 0) %>
+        <% tests.forEach(test => { %>
+
+        <form action="" method="GET"> 
+            <label for="test.Pregunta">Pregunta:</label><br>
+            <label for="test.resp1">Respuesta 1</label><br>
+            <input type="radio" id="resp1" name="test.resp1"><br><br>
             <label for="resp2">Respuesta 2</label><br>
-            <input type="radio" id="resp2" name="resp2"><br><br>
+            <input type="radio" id="resp2" name="test.resp2"><br><br>
             <label for="resp3">Respuesta 3</label><br>
-            <input type="radio" id="resp3" name="resp3"><br><br>
+            <input type="radio" id="resp3" name="test.resp3"><br><br>
             <label for="resp4">Respuesta 4</label><br>
-            <input type="radio" id="resp4" name="resp4"><br><br>
+            <input type="radio" id="resp4" name="test.resp4"><br><br>
 
             <input type="submit" value="Submit">
           </form>
