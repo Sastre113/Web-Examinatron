@@ -15,7 +15,7 @@
         <% tests.forEach(test => { %>
 
         <form action="" method="GET"> 
-            <label for="test.Pregunta">Pregunta:</label><br>
+            <label for="test.Pregunta"><%= test.Pregunta  %> </label><br>
             <label for="test.resp1">Respuesta 1</label><br>
             <input type="radio" id="resp1" name="test.resp1"><br><br>
             <label for="resp2">Respuesta 2</label><br>
