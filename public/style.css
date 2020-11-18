@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 /* Titulo */
@@ -51,6 +52,26 @@
 }
 
 /* Contenido */
+
+#grid-container {
+    display: grid;
+    grid-template-areas: 
+      'left middle middle middle right'  ;
+  } 
+
+  .left {
+    grid-area: left;
+  }
+  
+  /* Style the middle column */
+  .middle {
+    grid-area: middle;
+  }
+  
+  /* Style the right column */
+  .right {
+    grid-area: right;
+  }
 
 /* Pie de pagina */
 
