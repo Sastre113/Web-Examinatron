@@ -2,44 +2,45 @@ const express = require('express')
 const Test = require('../models/question.js')
 const router = new express.Router()
 
-
-router.post('/create', async (req, res) => {
-    const create = new Test(req.body)
+ 
+router.post('/test' // NOMBRE DE RECUERSO 
+, async (req, res) => {
+    const test = new Test(req.body)
 
     try {
-        await create.save()
-        res.status(201).send(create)
+        await test.save()
+        res.status(201).send(test)
     } catch (e) {
         res.status(400).send(e)
     }
 })
 
-router.get('/create', async (req, res) => {
+router.get('/test', async (req, res) => {
     try {
-        const create = await Test.find({})
-        res.send(create)
+        const test = await Test.find({})
+        res.send(test)
     } catch (e) {
         res.status(500).send()
     }
 })
 
-router.get('/create/:id', async (req, res) => {
+router.get('/test/:id', async (req, res) => {
     const _id = req.params.id
 
     try {
-        const create = await Test.findById(_id)
+        const test = await Test.findById(_id)
 
-        if (!create) {
+        if (!test) {
             return res.status(404).send()
         }
 
-        res.send(create)
+        res.send(test)
     } catch (e) {
         res.status(500).send()
     }
 })
 
-router.patch('/create/:id', async (req, res) => {
+router.patch('/test/:id', async (req, res) => {
     const updates = Object.keys(req.body)
     const allowedUpdates = ['pregunta', 'resp1','resp2','resp3','resp4','solucion',]
     const isValidOperation = updates.every((update) => allowedUpdates.includes(update))
@@ -49,27 +50,27 @@ router.patch('/create/:id', async (req, res) => {
     }
 
     try {
-        const create = await Test.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true })
+        const test = await Test.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true })
 
-        if (!create) {
+        if (!test) {
             return res.status(404).send()
         }
 
-        res.send(create)
+        res.send(test)
     } catch (e) {
         res.status(400).send(e)
     }
 })
 
-router.delete('/create/:id', async (req, res) => {
+router.delete('/test/:id', async (req, res) => {
     try {
-        const create = await Test.findByIdAndDelete(req.params.id)
+        const test = await Test.findByIdAndDelete(req.params.id)
 
-        if (!create) {
+        if (!test) {
             res.status(404).send()
         }
 
-        res.send(create)
+        res.send(test)
     } catch (e) {
         res.status(500).send()
     }

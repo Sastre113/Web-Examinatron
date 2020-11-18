@@ -1,4 +1,5 @@
 const express = require('express');
+const Test = require('./models/question');
 require('./db/mongoose');
 
 const testRouter = require('./routers/question');
@@ -28,7 +29,12 @@ app.get('/create', (req, res) => {
 });
 
 app.get('/test', (req, res) => {
-  res.render('test', { title: 'Test' });
+  try {
+    const tests = await Test.find({})
+    res.render('test', { title: 'Test' , tests});
+  } catch (error) {
+    res.render('test', { title: 'Test' , tests: [] });
+  }
 });
 
 app.use(express.json());
