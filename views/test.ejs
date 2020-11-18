@@ -11,9 +11,8 @@
         <%- include("./partials/nav.ejs") %>
     </header>
     <main>
-        <form method="GET">
+        <form action="/api/tests" method="GET">
             <label for="question">Pregunta:</label><br>
-            
             <label for="resp1">Respuesta 1</label><br>
             <input type="radio" id="resp1" name="respuesta"><br><br>
             <label for="resp2">Respuesta 2</label><br>
