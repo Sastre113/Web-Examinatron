@@ -21,7 +21,8 @@ app.use('/static', express.static(__dirname + '/public'));
 
 
 app.get('/', (req, res) => {
-  res.render('index', { title: 'Bienvenido'});
+  const tests = await Test.find({})
+  res.render('index', { title: 'Bienvenido',tests});
 });
 
 app.get('/create', (req, res) => {
