@@ -20,7 +20,7 @@ app.set('view engine', 'ejs');
 app.use('/static', express.static(__dirname + '/public'));
 
 
-app.get('/', (req, res) => {
+app.get('/',  async (req, res) => {
   const tests = await Test.find({})
   res.render('index', { title: 'Bienvenido',tests});
 });
@@ -29,7 +29,7 @@ app.get('/create', (req, res) => {
   res.render('create', { title: 'Test' });
 });
 
-app.get('/test', (req, res) => {
+app.get('/test', async (req, res) => {
   try {
     const tests = await Test.find({})
     res.render('test', { title: 'Test' , tests});
