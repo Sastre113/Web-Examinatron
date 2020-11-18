@@ -3,7 +3,7 @@ const Test = require('../models/question.js')
 const router = new express.Router()
 
  
-router.post('/test' // NOMBRE DE RECUERSO 
+router.post('/tests' // NOMBRE DE RECURSO
 , async (req, res) => {
     const test = new Test(req.body)
 
@@ -15,7 +15,7 @@ router.post('/test' // NOMBRE DE RECUERSO
     }
 })
 
-router.get('/test', async (req, res) => {
+router.get('/tests', async (req, res) => {
     try {
         const test = await Test.find({})
         res.send(test)
@@ -24,7 +24,7 @@ router.get('/test', async (req, res) => {
     }
 })
 
-router.get('/test/:id', async (req, res) => {
+router.get('/tests/:id', async (req, res) => {
     const _id = req.params.id
 
     try {
@@ -40,7 +40,7 @@ router.get('/test/:id', async (req, res) => {
     }
 })
 
-router.patch('/test/:id', async (req, res) => {
+router.patch('/tests/:id', async (req, res) => {
     const updates = Object.keys(req.body)
     const allowedUpdates = ['pregunta', 'resp1','resp2','resp3','resp4','solucion',]
     const isValidOperation = updates.every((update) => allowedUpdates.includes(update))
@@ -62,7 +62,7 @@ router.patch('/test/:id', async (req, res) => {
     }
 })
 
-router.delete('/test/:id', async (req, res) => {
+router.delete('/tests/:id', async (req, res) => {
     try {
         const test = await Test.findByIdAndDelete(req.params.id)
 
