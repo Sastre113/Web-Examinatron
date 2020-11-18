@@ -27,6 +27,10 @@ app.get('/create', (req, res) => {
   res.render('create', { title: 'Test' });
 });
 
+app.get('/test', (req, res) => {
+  res.render('test', { title: 'Test' });
+});
+
 app.use(express.json());
 app.use('/api', testRouter);
 
