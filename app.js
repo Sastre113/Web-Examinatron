@@ -18,6 +18,9 @@ app.set('view engine', 'ejs');
 
 // middleware & static files
 app.use('/static', express.static(__dirname + '/public'));
+app.use(express.urlencoded({
+  extended: true
+}))
 
 
 app.get('/',  async (req, res) => {
