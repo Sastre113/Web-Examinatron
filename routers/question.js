@@ -9,7 +9,8 @@ router.post('/tests' // NOMBRE DE RECURSOS
 
     try {
         await test.save()
-        res.status(201).send(test)
+        res.redirect('/create');
+        //res.status(201).send(test) // Esto muestra lo añadido
     } catch (e) {
         res.status(400).send(e)
     }
