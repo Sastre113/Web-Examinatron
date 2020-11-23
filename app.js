@@ -24,15 +24,18 @@ app.use(express.urlencoded({
 
 
 app.get('/',  async (req, res) => {
+  console.log(`Estamos en Bievendido`);
   const tests = await Test.find({})
   res.render('index', { title: 'Bienvenido',tests});
 });
 
 app.get('/create', (req, res) => {
+  console.log(`Estamos en Enviar Test`);
   res.render('create', { title: 'Test' });
 });
 
 app.get('/test', async (req, res) => {
+  console.log(`Estamos en Test`);
   try {
     const tests = await Test.find({})
     res.render('test', { title: 'Test' , tests});
