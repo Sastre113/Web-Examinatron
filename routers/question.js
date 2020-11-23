@@ -1,9 +1,9 @@
 const express = require('express')
-const Test = require('../models/question.js')
+const Test = require('../models/question.js') // MODELO DEL RECURSO
 const router = new express.Router()
 
  
-router.post('/tests' // NOMBRE DE RECURSO
+router.post('/tests' // NOMBRE DE RECURSOS
 , async (req, res) => {
     const test = new Test(req.body)
 
