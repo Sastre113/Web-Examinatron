@@ -1,8 +1,10 @@
 const express = require('express');
 const Test = require('./models/question');
+const User = require('./models/user');
 require('./db/mongoose');
 
 const testRouter = require('./routers/question');
+const userRouter = require('./routers/user');
 const port = process.env.PORT || 3000;
 
 // express app
@@ -46,6 +48,7 @@ app.get('/test', async (req, res) => {
 
 app.use(express.json());
 app.use('/api', testRouter);
+app.use('/api', userRouter);
 
 // 404 page
 app.use((req, res) => {
